@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { NewQuoteForm } from "@/components/quotes/NewQuoteForm";
+import { Lead } from "@/types";
 
 export default async function NewQuotePage({
   searchParams,
@@ -28,7 +29,7 @@ export default async function NewQuotePage({
         <h1 className="text-2xl font-bold text-gray-900">Nueva Cotización</h1>
         <p className="text-gray-500 text-sm mt-1">Generá una cotización para enviarle al cliente</p>
       </div>
-      <NewQuoteForm leads={leads ?? []} vehicles={vehicles ?? []} defaultLeadId={lead_id} />
+      <NewQuoteForm leads={(leads ?? []) as unknown as Lead[]} vehicles={vehicles ?? []} defaultLeadId={lead_id} />
     </div>
   );
 }
