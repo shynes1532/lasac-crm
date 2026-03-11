@@ -10,6 +10,7 @@ import {
   CHANNEL_ICONS, PRIORITY_LABELS, formatDateTime, formatDate,
   whatsappLink, cn
 } from "@/lib/utils";
+import { LeadStatus } from "@/types";
 import { LeadStatusUpdater } from "@/components/leads/LeadStatusUpdater";
 import { ActivityFeed } from "@/components/leads/ActivityFeed";
 import { AddActivityForm } from "@/components/leads/AddActivityForm";
@@ -77,9 +78,9 @@ export default async function LeadDetailPage({
         {/* Status badge */}
         <span className={cn(
           "px-3 py-1 rounded-full text-sm font-medium border",
-          LEAD_STATUS_COLORS[lead.status]
+          LEAD_STATUS_COLORS[lead.status as LeadStatus]
         )}>
-          {LEAD_STATUS_LABELS[lead.status]}
+          {LEAD_STATUS_LABELS[lead.status as LeadStatus]}
         </span>
       </div>
 
